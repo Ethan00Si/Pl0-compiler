@@ -1,0 +1,30 @@
+var n of int, m of int, fact of int, sum of int;
+
+procedure factorial;
+begin
+    if m > 0 then
+        begin
+            fact := fact * m;
+            m := m - 1;
+            call(factorial);
+        end;
+end;
+
+begin
+    read(n);
+    sum := 0;
+    while n > 3
+    do
+        begin
+            m := n;
+            fact := 1;
+            call (factorial);
+            if fact > 20 then 
+                begin
+                write (n);
+                end;
+            sum := sum + fact;
+            n := n - 1;
+        end;
+    write(sum);
+end.

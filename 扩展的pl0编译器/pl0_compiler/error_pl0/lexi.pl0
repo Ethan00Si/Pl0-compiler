@@ -1,0 +1,17 @@
+var r of int, h of int, len of int, a1 of int, a2 of int, volumn array [1..3,1..4] of int, aaa of float;
+
+begin
+    read(r);
+	read(h);
+    
+	
+	len := 2 * 3 * r;
+	a1 := 3 * r * r;
+	a2 := a1 + a1 + len * h;
+	arr[1,1] := a2;
+	
+	write(len);
+	write(a1);
+	write(a2);
+	
+end.

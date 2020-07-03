@@ -1,0 +1,12 @@
+
+var f, c :real;
+
+begin
+    read(f);
+    c := 5 * (f - 32) / 9;
+    write(c);
+end.
+
+var s?#@dscf : integer;
+var s:real;
+s=1.

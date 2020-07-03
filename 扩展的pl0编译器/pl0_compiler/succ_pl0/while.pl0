@@ -1,0 +1,11 @@
+const c1 := 1;
+var i of int;
+begin
+	i := 10;
+	while i > 1
+	do
+		begin
+			i := i - 1;
+			write(i);
+		end;
+end.

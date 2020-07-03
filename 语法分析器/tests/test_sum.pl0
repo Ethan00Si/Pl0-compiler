@@ -1,0 +1,67 @@
+const C1:=123;
+const C2:=-123,C3:=1.1,C4:=-2.2E-22,C5:=1.1e+11;
+
+var V1,V2 of int,V3 array [0..9] of int;
+var V4 of char,V5 of string,V6 of float;
+var V8 array [3..5,4..6,5..7] of float;
+
+procedure  P1;
+var p1;
+    procedure P2;
+    var p2;
+        procedure P3;
+        var p3;
+        begin
+            p3:=10;
+            
+            while p3 != 0 do
+            begin
+                p3 := p3 - 1 ;
+            end;
+
+            for i:=0 to 9 do
+            begin
+                    p3 := p3 * 2 + 3 ;
+            end;
+            
+            repeat
+            begin
+                    p3 := p3 / 4 ;
+            end;
+            until p3 = 0
+            
+            V2 := p3 ;
+        end;
+    begin
+        p2 := 0 ;
+        call ( P3 ) ;
+        write ( "hyx" , 'z') ;
+    end;
+begin
+    call(P2);
+end;
+
+procedure P4;
+begin
+    read ( x );
+    
+end;
+
+procedure P5;
+begin
+    V3[1]:=1;
+    V8[1,2,3]:=123;
+end;
+
+begin
+    call ( P1 );
+    if V2 <= 99
+    then
+    begin
+        call ( P4 );
+    end
+    else
+    begin
+        call ( P5 );
+    end
+end.

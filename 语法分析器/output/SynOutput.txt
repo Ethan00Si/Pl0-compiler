@@ -1,0 +1,247 @@
+CDefine -> IDENTIFIER := INTEGER_VAL
+ConstDef -> CDefine
+ConstDec -> const ConstDef SEMI
+CDefine -> IDENTIFIER := INTEGER_VAL
+ConstDef -> CDefine
+CDefine -> IDENTIFIER := FLOAT_VAL
+ConstDef -> ConstDef , CDefine
+CDefine -> IDENTIFIER := FLOAT_VAL
+ConstDef -> ConstDef , CDefine
+CDefine -> IDENTIFIER := FLOAT_VAL
+ConstDef -> ConstDef , CDefine
+ConstDec -> ConstDec const ConstDef SEMI
+IdentiObject -> IDENTIFIER
+IdentiDef -> IdentiObject
+ValueType -> INT
+IdentiObject -> IDENTIFIER OF ValueType
+IdentiDef -> IdentiDef , IdentiObject
+ArrayDimObj -> INTEGER_VAL OMIT INTEGER_VAL
+ArrayNDim -> ArrayDimObj
+Realm -> [ ArrayNDim ]
+ArrayType -> INT
+IdentiObject -> IDENTIFIER ARRAY Realm OF ArrayType
+IdentiDef -> IdentiDef , IdentiObject
+VarObj -> var IdentiDef SEMI
+VarDec -> VarObj
+ValueType -> CHAR
+IdentiObject -> IDENTIFIER OF ValueType
+IdentiDef -> IdentiObject
+ValueType -> STRING
+IdentiObject -> IDENTIFIER OF ValueType
+IdentiDef -> IdentiDef , IdentiObject
+ValueType -> FLOAT
+IdentiObject -> IDENTIFIER OF ValueType
+IdentiDef -> IdentiDef , IdentiObject
+VarObj -> var IdentiDef SEMI
+VarDec -> VarDec VarObj
+ArrayDimObj -> INTEGER_VAL OMIT INTEGER_VAL
+ArrayNDim -> ArrayDimObj
+ArrayDimObj -> INTEGER_VAL OMIT INTEGER_VAL
+ArrayNDim -> ArrayNDim COMMA ArrayDimObj
+ArrayDimObj -> INTEGER_VAL OMIT INTEGER_VAL
+ArrayNDim -> ArrayNDim COMMA ArrayDimObj
+Realm -> [ ArrayNDim ]
+ArrayType -> FLOAT
+IdentiObject -> IDENTIFIER ARRAY Realm OF ArrayType
+IdentiDef -> IdentiObject
+VarObj -> var IdentiDef SEMI
+VarDec -> VarDec VarObj
+ProceHead -> procedure IDENTIFIER SEMI
+IdentiObject -> IDENTIFIER
+IdentiDef -> IdentiObject
+VarObj -> var IdentiDef SEMI
+VarDec -> VarObj
+ProceHead -> procedure IDENTIFIER SEMI
+IdentiObject -> IDENTIFIER
+IdentiDef -> IdentiObject
+VarObj -> var IdentiDef SEMI
+VarDec -> VarObj
+ProceHead -> procedure IDENTIFIER SEMI
+IdentiObject -> IDENTIFIER
+IdentiDef -> IdentiObject
+VarObj -> var IdentiDef SEMI
+VarDec -> VarObj
+DeclarePart -> VarDec
+Identifier -> IDENTIFIER
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> Statement
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Expr -> Term
+CMP -> NOTEQUAL
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+Condition -> Expr CMP Expr
+Identifier -> IDENTIFIER
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Expr -> Term
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Expr MINUS Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+WhileStm -> WHILE Condition DO Statement
+Statements -> WhileStm SEMI
+States -> States Statement
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+Identifier -> IDENTIFIER
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Factor -> INTEGER_VAL
+Term -> Term TIMES Factor
+Expr -> Term
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Expr PLUS Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+ForStm -> FOR IDENTIFIER := Expr TO Expr DO Statement
+Statements -> ForStm SEMI
+States -> States Statement
+Identifier -> IDENTIFIER
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Factor -> INTEGER_VAL
+Term -> Term DIVIDE Factor
+Expr -> Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Expr -> Term
+CMP -> EQUAL
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+Condition -> Expr CMP Expr
+RepeatS -> REPEAT Statement SEMI UNTIL Condition
+Statements -> RepeatS
+States -> States Statement
+Identifier -> IDENTIFIER
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Expr -> Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> States Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+SubPro -> DeclarePart Statement
+ProDec -> ProceHead SubPro SEMI
+DeclarePart -> VarDec ProDec
+Identifier -> IDENTIFIER
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> Statement
+CallS -> call SL_PAREN IDENTIFIER SR_PAREN
+Statements -> CallS SEMI
+States -> States Statement
+WconObj -> STRING_VAL
+Wcontent -> WconObj
+WconObj -> CHAR_VAL
+Wcontent -> Wcontent COMMA WconObj
+WriteS -> write SL_PAREN Wcontent SR_PAREN
+Statements -> WriteS SEMI
+States -> States Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+SubPro -> DeclarePart Statement
+ProDec -> ProceHead SubPro SEMI
+DeclarePart -> VarDec ProDec
+CallS -> call SL_PAREN IDENTIFIER SR_PAREN
+Statements -> CallS SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+SubPro -> DeclarePart Statement
+ProDec -> ProceHead SubPro SEMI
+ProceHead -> procedure IDENTIFIER SEMI
+ReadS -> read SL_PAREN IDENTIFIER SR_PAREN
+Statements -> ReadS SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+SubPro -> Statement
+ProDec -> ProDec ProceHead SubPro SEMI
+ProceHead -> procedure IDENTIFIER SEMI
+INdex_Index -> INTEGER_VAL
+Identifier -> IDENTIFIER LEFTBRAC INdex_Index RIGHTBRAC
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> Statement
+INdex_Index -> INTEGER_VAL
+INdex_Index -> INdex_Index COMMA INTEGER_VAL
+INdex_Index -> INdex_Index COMMA INTEGER_VAL
+Identifier -> IDENTIFIER LEFTBRAC INdex_Index RIGHTBRAC
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+AssignStm -> Identifier ASSIGN Expr
+Statements -> AssignStm SEMI
+States -> States Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+SubPro -> Statement
+ProDec -> ProDec ProceHead SubPro SEMI
+DeclarePart -> ConstDec VarDec ProDec
+CallS -> call SL_PAREN IDENTIFIER SR_PAREN
+Statements -> CallS SEMI
+States -> Statement
+Identifier -> IDENTIFIER
+Factor -> Identifier
+Term -> Factor
+Expr -> Term
+CMP -> LESS_EQUAL
+Factor -> INTEGER_VAL
+Term -> Factor
+Expr -> Term
+Condition -> Expr CMP Expr
+CallS -> call SL_PAREN IDENTIFIER SR_PAREN
+Statements -> CallS SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+CallS -> call SL_PAREN IDENTIFIER SR_PAREN
+Statements -> CallS SEMI
+States -> Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+CondiStm -> IF Condition THEN Statement ELSE Statement
+Statements -> CondiStm
+States -> States Statement
+ComplexStm -> _BEGIN_ States END
+Statement -> ComplexStm
+SubPro -> DeclarePart Statement
+Program -> SubPro DOT

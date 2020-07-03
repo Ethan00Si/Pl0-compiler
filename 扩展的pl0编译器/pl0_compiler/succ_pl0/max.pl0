@@ -1,0 +1,30 @@
+var a of int, b of int, c of int, max of int;
+
+procedure P;
+begin
+    read(a);
+    b := 2;
+    c := 1;
+    if a > b
+    then
+        begin 
+        max := a;
+        write(max);
+        end;
+    else
+        begin 
+        max := b;
+        end;
+
+    if max < c
+    then
+        begin 
+        max := c;
+        write(max);
+        end;
+    write(max);
+end;
+
+begin
+    call (P);
+end.

@@ -1,0 +1,26 @@
+var x of int, y of int;
+
+procedure function;
+begin
+if x < 1 then
+	begin
+    y := x;
+    end
+else
+	begin
+    if x < 10 then
+    	begin
+        y := 2 * x - 1;
+        end
+    else
+    	begin
+        y := 3 * x - 11;
+        end
+    end
+end;
+
+begin
+    read(x);
+    call (function);
+    write(y);
+end.

@@ -1,0 +1,11 @@
+var a of int, i of int;
+begin
+	i := 1;
+	repeat
+		begin
+			i := i + 1;
+			write(i);
+		end;
+	until
+		i == 10
+end.

@@ -1,0 +1,22 @@
+var i,s:integer;
+begin
+s:=0;
+for i:=1 to 10 do
+s:=s+i;
+end;
+
+var n,i,j,k,a,b:integer;
+begin
+write('n='); readln(n);
+a:=0; b:=0; i:=1;
+repeat
+k:=i; j:=0;
+repeat
+if odd(k) then inc(j) else dec(j);
+k:=k div 2;
+until k=0;
+if j>0 then inc(a) else inc(b);
+inc(i);
+until i=n;
+writeln('A:',a,' B:',b)
+end.

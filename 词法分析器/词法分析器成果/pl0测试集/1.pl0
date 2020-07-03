@@ -1,0 +1,33 @@
+var r, h, len, a1, a2, volumn:integer;
+
+begin
+	read(r);
+	read(h);
+	
+	len := 2 * 3 * r;
+	len := 5 - 3;
+	a1 := 3 * r * r;
+	a2 := a1 + a1 + len * h;
+	volumn := a1 * h;
+	
+	write(len);
+	write(a1);
+	write(a2);
+	write(volumn);
+end.
+
+sample1=Array [1..10] of integer;
+sample2=Array [1..5,1..5] of integer;
+
+sample1[1] := 2*3;
+
+Var a  Array [1..10] of integer;
+
+var p : real;
+var s:char;
+var ss,sss:string;
+s := 's';
+ss := "asdfgh";
+sss := s+ss;
+p := 1.023e+23;
+p := 1234567898765433245;

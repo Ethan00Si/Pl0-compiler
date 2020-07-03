@@ -1,0 +1,22 @@
+var a of int, b of int, n of int, sum of int;
+
+begin
+    read(a);
+    read(n);
+    if n > 0 then
+        begin
+        if n < 10 then
+            begin
+                b := a;
+                sum := 0;
+                repeat
+                    begin
+                    sum := sum + b;
+                    b := b * 10 + a;
+                    n := n - 1;
+                    end;
+                until n == 0
+            end;
+        end;
+    write(sum);
+end.
